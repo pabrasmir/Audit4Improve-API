@@ -130,6 +130,7 @@ public class RepositoryCalculatorTest {
 		Mockito.verify(reportManagerMock,Mockito.atLeastOnce()).getReport();
 		
 		Mockito.verify(report,Mockito.atLeastOnce()).getAllMetrics();
+		//Mockito.verify(report, times(1)).getAllMetrics();
 	}
 
 	/**
