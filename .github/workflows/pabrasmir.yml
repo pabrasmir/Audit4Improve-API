@@ -13,9 +13,10 @@ jobs:
       issues: write
     steps:
       - name: Comentar en un issue nuevo
-        if: github.event_name == 'issues' && github.event.action == 'opened'
-        uses: peter-evans/create-or-update-comment@v2
+        if: ${{ github.event.issue.number }}
+        uses: peter-evans/create-or-update-comment@v3
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
             ¡Hola! Soy un bot automatizado de GitHub Actions. Acabo de detectar que has abierto un Issue. ¡Gracias por avisar, lo revisaremos pronto!
