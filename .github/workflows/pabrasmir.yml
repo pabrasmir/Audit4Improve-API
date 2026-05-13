@@ -1,0 +1,19 @@
+name: Triage de Issues - pabrasmir
+on:
+  issues:
+    types: [opened]
+  project_cards:
+    types: [moved]
+  workflow_dispatch:
+
+jobs:
+  auto_comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comentar en un issue nuevo
+        if: github.event_name == 'issues' && github.event.action == 'opened'
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            ¡Hola! Soy un bot automatizado de GitHub Actions. Acabo de detectar que has abierto un Issue. ¡Gracias por avisar, lo revisaremos pronto!
