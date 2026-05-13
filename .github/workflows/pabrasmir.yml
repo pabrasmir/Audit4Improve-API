@@ -2,7 +2,7 @@ name: Triage de Issues - pabrasmir
 on:
   issues:
     types: [opened]
-  project_cards:
+  project_card:
     types: [moved]
   workflow_dispatch:
 
