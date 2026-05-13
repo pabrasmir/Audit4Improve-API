@@ -9,6 +9,8 @@ on:
 jobs:
   auto_comment:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - name: Comentar en un issue nuevo
         if: github.event_name == 'issues' && github.event.action == 'opened'
